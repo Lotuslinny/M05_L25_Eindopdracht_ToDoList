@@ -1,11 +1,8 @@
 const addListToDom = async () => {
   document.getElementById("ToDoList").innerHTML = "";
   const dataList = await getDataFromApi();
-  console.log(array)
-  //array.filter(element => element === (element.description.innerHTML = "{a-z] || [A-Z] || [0-9]"));
-
+  //console.log(array)
   array.forEach(element => {
-
     let listItem = document.createElement("li")
     let node = document.createTextNode(element.description);
     let img = document.createElement("img");
@@ -17,7 +14,6 @@ const addListToDom = async () => {
     // meteen een console log is dus niet zo handig, hij moet netjes in een functie staan. Dan voert hij hem pas uit op de klik. 
     img.addEventListener("click", function () {
       deleteDataFromApi(img.id);
-
     });
   })
 };
@@ -26,9 +22,7 @@ addListToDom();
 /* Wanneer er een taak in het Inputveld wordt getypt en daarna op de addTask button wordt gedrukt,
  wordt de task gePOST en toegevoegd aan de lijst UL aan een Li.
  */
+
 document.getElementById("buttonAddTask").addEventListener("click", postDataFromApi);
 
-/* const hasAnArrayWithTasksNotDeleted = () => {
-  if
-}; */
 
